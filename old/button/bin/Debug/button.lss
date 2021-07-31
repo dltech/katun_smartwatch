@@ -1,0 +1,1249 @@
+
+bin/Debug/button.elf:     формат файла elf32-avr
+
+Разделы:
+Инд Имя           Размер    VMA       LMA       Файл      Вырав
+  0 .text         0000065e  00000000  00000000  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000065e  00000732  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000002f  00800060  00800060  00000732  2**0
+                  ALLOC
+  3 .eeprom       00000002  00810000  00810000  00000732  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .fuse         00000003  00820000  00820000  00000734  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .stab         000018fc  00000000  00000000  00000738  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  6 .stabstr      0000110f  00000000  00000000  00002034  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .comment      00000011  00000000  00000000  00003143  2**0
+                  CONTENTS, READONLY
+
+Дизассемблирование раздела .text:
+
+00000000 <__vectors>:
+   0:	22 c0       	rjmp	.+68     	; 0x46 <__ctors_end>
+   2:	30 c0       	rjmp	.+96     	; 0x64 <__vector_1>
+   4:	1f c1       	rjmp	.+574    	; 0x244 <__vector_2>
+   6:	2d c0       	rjmp	.+90     	; 0x62 <__bad_interrupt>
+   8:	2c c0       	rjmp	.+88     	; 0x62 <__bad_interrupt>
+   a:	2b c0       	rjmp	.+86     	; 0x62 <__bad_interrupt>
+   c:	2a c0       	rjmp	.+84     	; 0x62 <__bad_interrupt>
+   e:	29 c0       	rjmp	.+82     	; 0x62 <__bad_interrupt>
+  10:	28 c0       	rjmp	.+80     	; 0x62 <__bad_interrupt>
+  12:	27 c0       	rjmp	.+78     	; 0x62 <__bad_interrupt>
+  14:	26 c0       	rjmp	.+76     	; 0x62 <__bad_interrupt>
+  16:	25 c0       	rjmp	.+74     	; 0x62 <__bad_interrupt>
+  18:	24 c0       	rjmp	.+72     	; 0x62 <__bad_interrupt>
+  1a:	23 c0       	rjmp	.+70     	; 0x62 <__bad_interrupt>
+  1c:	22 c0       	rjmp	.+68     	; 0x62 <__bad_interrupt>
+  1e:	21 c0       	rjmp	.+66     	; 0x62 <__bad_interrupt>
+  20:	20 c0       	rjmp	.+64     	; 0x62 <__bad_interrupt>
+  22:	1f c0       	rjmp	.+62     	; 0x62 <__bad_interrupt>
+  24:	1e c0       	rjmp	.+60     	; 0x62 <__bad_interrupt>
+  26:	1d c0       	rjmp	.+58     	; 0x62 <__bad_interrupt>
+  28:	1c c0       	rjmp	.+56     	; 0x62 <__bad_interrupt>
+  2a:	f7 c1       	rjmp	.+1006   	; 0x41a <rfm12_channel+0x12>
+  2c:	f9 c1       	rjmp	.+1010   	; 0x420 <rfm12_channel+0x18>
+  2e:	fb c1       	rjmp	.+1014   	; 0x426 <rfm12_channel+0x1e>
+  30:	fd c1       	rjmp	.+1018   	; 0x42c <rfm12_channel+0x24>
+  32:	ff c1       	rjmp	.+1022   	; 0x432 <rfm12_channel+0x2a>
+  34:	01 c2       	rjmp	.+1026   	; 0x438 <rfm12_channel+0x30>
+  36:	03 c2       	rjmp	.+1030   	; 0x43e <rfm12_channel+0x36>
+  38:	05 c2       	rjmp	.+1034   	; 0x444 <rfm12_channel+0x3c>
+  3a:	07 c2       	rjmp	.+1038   	; 0x44a <rfm12_channel+0x42>
+  3c:	09 c2       	rjmp	.+1042   	; 0x450 <rfm12_channel+0x48>
+  3e:	0b c2       	rjmp	.+1046   	; 0x456 <rfm12_channel+0x4e>
+  40:	0d c2       	rjmp	.+1050   	; 0x45c <rfm12_channel+0x54>
+  42:	0f c2       	rjmp	.+1054   	; 0x462 <rfm12_channel+0x5a>
+  44:	11 c2       	rjmp	.+1058   	; 0x468 <rfm12_channel+0x60>
+
+00000046 <__ctors_end>:
+  46:	11 24       	eor	r1, r1
+  48:	1f be       	out	0x3f, r1	; 63
+  4a:	cf ed       	ldi	r28, 0xDF	; 223
+  4c:	cd bf       	out	0x3d, r28	; 61
+
+0000004e <__do_clear_bss>:
+  4e:	20 e0       	ldi	r18, 0x00	; 0
+  50:	a0 e6       	ldi	r26, 0x60	; 96
+  52:	b0 e0       	ldi	r27, 0x00	; 0
+  54:	01 c0       	rjmp	.+2      	; 0x58 <.do_clear_bss_start>
+
+00000056 <.do_clear_bss_loop>:
+  56:	1d 92       	st	X+, r1
+
+00000058 <.do_clear_bss_start>:
+  58:	af 38       	cpi	r26, 0x8F	; 143
+  5a:	b2 07       	cpc	r27, r18
+  5c:	e1 f7       	brne	.-8      	; 0x56 <.do_clear_bss_loop>
+  5e:	08 d2       	rcall	.+1040   	; 0x470 <main>
+  60:	fc c2       	rjmp	.+1528   	; 0x65a <_exit>
+
+00000062 <__bad_interrupt>:
+  62:	ce cf       	rjmp	.-100    	; 0x0 <__vectors>
+
+00000064 <__vector_1>:
+uint8_t     id_eep          EEPROM_SECTION  = 0x01;
+uint8_t     channel_eep     EEPROM_SECTION  = 0x01;
+
+
+ISR(INT0_vect)
+{
+  64:	1f 92       	push	r1
+  66:	0f 92       	push	r0
+  68:	0f b6       	in	r0, 0x3f	; 63
+  6a:	0f 92       	push	r0
+  6c:	11 24       	eor	r1, r1
+  6e:	8f 93       	push	r24
+  70:	9f 93       	push	r25
+	GIMSK &= ~(1<<INT0);
+  72:	8b b7       	in	r24, 0x3b	; 59
+  74:	8f 7b       	andi	r24, 0xBF	; 191
+  76:	8b bf       	out	0x3b, r24	; 59
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  78:	8a ef       	ldi	r24, 0xFA	; 250
+  7a:	90 e0       	ldi	r25, 0x00	; 0
+  7c:	01 97       	sbiw	r24, 0x01	; 1
+  7e:	f1 f7       	brne	.-4      	; 0x7c <__vector_1+0x18>
+	_delay_ms(1);
+	if ((PIND & (1 << PD4)) == 0)
+  80:	84 99       	sbic	0x10, 4	; 16
+  82:	03 c0       	rjmp	.+6      	; 0x8a <__vector_1+0x26>
+	{
+		S=1;
+  84:	81 e0       	ldi	r24, 0x01	; 1
+  86:	80 93 60 00 	sts	0x0060, r24
+	}
+	if ((PIND & (1 << PD5)) == 0)
+  8a:	85 99       	sbic	0x10, 5	; 16
+  8c:	03 c0       	rjmp	.+6      	; 0x94 <__vector_1+0x30>
+	{
+		S=2;
+  8e:	82 e0       	ldi	r24, 0x02	; 2
+  90:	80 93 60 00 	sts	0x0060, r24
+	}
+	GIMSK |= (1<<INT0);
+  94:	8b b7       	in	r24, 0x3b	; 59
+  96:	80 64       	ori	r24, 0x40	; 64
+  98:	8b bf       	out	0x3b, r24	; 59
+}
+  9a:	9f 91       	pop	r25
+  9c:	8f 91       	pop	r24
+  9e:	0f 90       	pop	r0
+  a0:	0f be       	out	0x3f, r0	; 63
+  a2:	0f 90       	pop	r0
+  a4:	1f 90       	pop	r1
+  a6:	18 95       	reti
+
+000000a8 <transmit_command>:
+*/
+
+
+void transmit_command(uint8_t command)
+{
+    pack_buffer[HEADER_NBYTES] = BUTTON;
+  a8:	90 e5       	ldi	r25, 0x50	; 80
+  aa:	90 93 73 00 	sts	0x0073, r25
+    pack_buffer[HEADER_NBYTES+1] = command;
+  ae:	80 93 74 00 	sts	0x0074, r24
+    pack_buffer[HEADER_NBYTES+2] = id;
+  b2:	80 91 61 00 	lds	r24, 0x0061
+  b6:	80 93 75 00 	sts	0x0075, r24
+    rfm12_transmit_pack(3);
+  ba:	83 e0       	ldi	r24, 0x03	; 3
+  bc:	36 d0       	rcall	.+108    	; 0x12a <rfm12_transmit_pack>
+    while(rfm_condition == TRANSMIT_PACK);
+  be:	80 91 65 00 	lds	r24, 0x0065
+  c2:	81 30       	cpi	r24, 0x01	; 1
+  c4:	e1 f3       	breq	.-8      	; 0xbe <transmit_command+0x16>
+}
+  c6:	08 95       	ret
+
+000000c8 <_crc16_update>:
+		: "=r" (__ret), "=d" (__tmp)
+		: "r" (__data), "0" (__crc)
+		: "r0"
+	);
+	return __ret;
+}
+  c8:	86 27       	eor	r24, r22
+  ca:	68 2f       	mov	r22, r24
+  cc:	62 95       	swap	r22
+  ce:	68 27       	eor	r22, r24
+  d0:	06 2e       	mov	r0, r22
+  d2:	66 95       	lsr	r22
+  d4:	66 95       	lsr	r22
+  d6:	60 25       	eor	r22, r0
+  d8:	06 2e       	mov	r0, r22
+  da:	66 95       	lsr	r22
+  dc:	60 25       	eor	r22, r0
+  de:	67 70       	andi	r22, 0x07	; 7
+  e0:	08 2e       	mov	r0, r24
+  e2:	89 2f       	mov	r24, r25
+  e4:	66 95       	lsr	r22
+  e6:	07 94       	ror	r0
+  e8:	67 95       	ror	r22
+  ea:	90 2d       	mov	r25, r0
+  ec:	86 27       	eor	r24, r22
+  ee:	06 94       	lsr	r0
+  f0:	67 95       	ror	r22
+  f2:	90 25       	eor	r25, r0
+  f4:	86 27       	eor	r24, r22
+  f6:	08 95       	ret
+
+000000f8 <rfm12_write>:
+}
+
+
+
+uint16_t rfm12_write(uint16_t data)
+{
+  f8:	9c 01       	movw	r18, r24
+    uint16_t in_data = 0;
+
+	RFM12_SPI_PORT &= ~(1<<RFM12_EN);
+  fa:	c4 98       	cbi	0x18, 4	; 24
+
+#ifdef PROGRAM_SPI_ENABLE
+
+	uint8_t i;
+
+    RFM12_SPI_PORT &= ~(1<<RFM12_SCK);
+  fc:	c7 98       	cbi	0x18, 7	; 24
+  fe:	40 e1       	ldi	r20, 0x10	; 16
+
+
+
+uint16_t rfm12_write(uint16_t data)
+{
+    uint16_t in_data = 0;
+ 100:	80 e0       	ldi	r24, 0x00	; 0
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+	uint8_t i;
+
+    RFM12_SPI_PORT &= ~(1<<RFM12_SCK);
+	for (i=0; i<16; i++)
+	{
+		if (data&0x8000)    RFM12_SPI_PORT |= (1<<RFM12_SDI);	              // вывод текущего бита в порт
+ 104:	37 ff       	sbrs	r19, 7
+ 106:	02 c0       	rjmp	.+4      	; 0x10c <rfm12_write+0x14>
+ 108:	c5 9a       	sbi	0x18, 5	; 24
+ 10a:	01 c0       	rjmp	.+2      	; 0x10e <rfm12_write+0x16>
+		else                RFM12_SPI_PORT &= ~(1<<RFM12_SDI);
+ 10c:	c5 98       	cbi	0x18, 5	; 24
+		data<<=1;
+ 10e:	22 0f       	add	r18, r18
+ 110:	33 1f       	adc	r19, r19
+ 112:	88 0f       	add	r24, r24
+ 114:	99 1f       	adc	r25, r25
+
+		if (RFM12_SPI_PIN&(1<<RFM12_SDO)) in_data = (in_data<<1) | 0x0001;    // считываение текущего бита с порта
+ 116:	b6 99       	sbic	0x16, 6	; 22
+ 118:	81 60       	ori	r24, 0x01	; 1
+		else                              in_data = in_data<<1;
+
+		RFM12_SPI_PORT |= (1<<RFM12_SCK);                                     // сигнал синхронизации
+ 11a:	c7 9a       	sbi	0x18, 7	; 24
+		asm("nop");                                                           // немного китайского кода
+ 11c:	00 00       	nop
+        asm("nop");
+ 11e:	00 00       	nop
+		RFM12_SPI_PORT &= ~(1<<RFM12_SCK);
+ 120:	c7 98       	cbi	0x18, 7	; 24
+ 122:	41 50       	subi	r20, 0x01	; 1
+#ifdef PROGRAM_SPI_ENABLE
+
+	uint8_t i;
+
+    RFM12_SPI_PORT &= ~(1<<RFM12_SCK);
+	for (i=0; i<16; i++)
+ 124:	79 f7       	brne	.-34     	; 0x104 <rfm12_write+0xc>
+    data = SPDR;
+	in_data += data;
+
+#endif // PROGRAM_SPI_ENABLE
+
+	RFM12_SPI_PORT |= (1<<RFM12_EN);
+ 126:	c4 9a       	sbi	0x18, 4	; 24
+
+    return in_data;
+
+}
+ 128:	08 95       	ret
+
+0000012a <rfm12_transmit_pack>:
+}
+
+
+
+uint8_t rfm12_transmit_pack( uint8_t nbytes )
+{
+ 12a:	1f 93       	push	r17
+ 12c:	cf 93       	push	r28
+ 12e:	df 93       	push	r29
+ 130:	c8 2f       	mov	r28, r24
+    uint8_t i=0;
+    uint16_t crc = 0xffff;
+
+    if (nbytes > DATA_BYTES_MAX)    return 1;
+ 132:	89 31       	cpi	r24, 0x19	; 25
+ 134:	08 f0       	brcs	.+2      	; 0x138 <rfm12_transmit_pack+0xe>
+ 136:	50 c0       	rjmp	.+160    	; 0x1d8 <rfm12_transmit_pack+0xae>
+
+    switch (rfm_condition)
+ 138:	80 91 65 00 	lds	r24, 0x0065
+ 13c:	81 30       	cpi	r24, 0x01	; 1
+ 13e:	09 f4       	brne	.+2      	; 0x142 <rfm12_transmit_pack+0x18>
+ 140:	4d c0       	rjmp	.+154    	; 0x1dc <rfm12_transmit_pack+0xb2>
+ 142:	82 30       	cpi	r24, 0x02	; 2
+ 144:	31 f4       	brne	.+12     	; 0x152 <rfm12_transmit_pack+0x28>
+        {
+            return 2;
+        }
+        case RECEIVE_PACK :
+        {
+            rfm12_write(FIFO_AND_RESET);                                                           // перестать заполнять FIFO
+ 146:	81 e8       	ldi	r24, 0x81	; 129
+ 148:	9a ec       	ldi	r25, 0xCA	; 202
+ 14a:	d6 df       	rcall	.-84     	; 0xf8 <rfm12_write>
+            rfm12_write(POWER_SC);
+ 14c:	88 e1       	ldi	r24, 0x18	; 24
+ 14e:	92 e8       	ldi	r25, 0x82	; 130
+ 150:	d3 df       	rcall	.-90     	; 0xf8 <rfm12_write>
+        }
+    }
+
+    rfm_condition = TRANSMIT_PACK;
+ 152:	81 e0       	ldi	r24, 0x01	; 1
+ 154:	80 93 65 00 	sts	0x0065, r24
+    pack_counter = 0;
+ 158:	10 92 64 00 	sts	0x0064, r1
+
+    pack_buffer[i++] = 0xaa;
+ 15c:	8a ea       	ldi	r24, 0xAA	; 170
+ 15e:	80 93 6f 00 	sts	0x006F, r24
+    pack_buffer[i++] = 0x2d;
+ 162:	8d e2       	ldi	r24, 0x2D	; 45
+ 164:	80 93 70 00 	sts	0x0070, r24
+    pack_buffer[i++] = SYNCH_WORD;
+ 168:	84 ed       	ldi	r24, 0xD4	; 212
+ 16a:	80 93 71 00 	sts	0x0071, r24
+    pack_buffer[i++] = nbytes+2;
+ 16e:	82 e0       	ldi	r24, 0x02	; 2
+ 170:	8c 0f       	add	r24, r28
+ 172:	80 93 72 00 	sts	0x0072, r24
+
+
+uint8_t rfm12_transmit_pack( uint8_t nbytes )
+{
+    uint8_t i=0;
+    uint16_t crc = 0xffff;
+ 176:	8f ef       	ldi	r24, 0xFF	; 255
+ 178:	9f ef       	ldi	r25, 0xFF	; 255
+    pack_counter = 0;
+
+    pack_buffer[i++] = 0xaa;
+    pack_buffer[i++] = 0x2d;
+    pack_buffer[i++] = SYNCH_WORD;
+    pack_buffer[i++] = nbytes+2;
+ 17a:	44 e0       	ldi	r20, 0x04	; 4
+    for ( ; i<(nbytes+HEADER_NBYTES) ; ++i) crc = _crc16_update(crc, pack_buffer[i]);
+ 17c:	d0 e0       	ldi	r29, 0x00	; 0
+ 17e:	23 96       	adiw	r28, 0x03	; 3
+ 180:	24 2f       	mov	r18, r20
+ 182:	30 e0       	ldi	r19, 0x00	; 0
+ 184:	d9 01       	movw	r26, r18
+ 186:	a1 59       	subi	r26, 0x91	; 145
+ 188:	bf 4f       	sbci	r27, 0xFF	; 255
+ 18a:	11 e0       	ldi	r17, 0x01	; 1
+ 18c:	14 0f       	add	r17, r20
+ 18e:	c2 17       	cp	r28, r18
+ 190:	d3 07       	cpc	r29, r19
+ 192:	24 f0       	brlt	.+8      	; 0x19c <rfm12_transmit_pack+0x72>
+ 194:	6c 91       	ld	r22, X
+ 196:	98 df       	rcall	.-208    	; 0xc8 <_crc16_update>
+ 198:	41 2f       	mov	r20, r17
+ 19a:	f2 cf       	rjmp	.-28     	; 0x180 <rfm12_transmit_pack+0x56>
+    pack_buffer[i++] = (uint8_t)(crc>>8);
+ 19c:	9c 93       	st	X, r25
+    pack_buffer[i++] = (uint8_t)crc;
+ 19e:	e1 2f       	mov	r30, r17
+ 1a0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a2:	e1 59       	subi	r30, 0x91	; 145
+ 1a4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a6:	80 83       	st	Z, r24
+ 1a8:	e2 e0       	ldi	r30, 0x02	; 2
+ 1aa:	e4 0f       	add	r30, r20
+    pack_buffer[i++] = 0xaa;
+ 1ac:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ae:	e1 59       	subi	r30, 0x91	; 145
+ 1b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1b2:	8a ea       	ldi	r24, 0xAA	; 170
+ 1b4:	80 83       	st	Z, r24
+ 1b6:	e3 e0       	ldi	r30, 0x03	; 3
+ 1b8:	e4 0f       	add	r30, r20
+    pack_buffer[i++] = 0xaa;
+ 1ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 1bc:	e1 59       	subi	r30, 0x91	; 145
+ 1be:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c0:	80 83       	st	Z, r24
+    pack_size = i+2;
+ 1c2:	4a 5f       	subi	r20, 0xFA	; 250
+ 1c4:	40 93 63 00 	sts	0x0063, r20
+
+    rfm12_write(CONFIGURATION_SETTING | TX_REG_MASK);
+ 1c8:	87 ed       	ldi	r24, 0xD7	; 215
+ 1ca:	90 e8       	ldi	r25, 0x80	; 128
+ 1cc:	95 df       	rcall	.-214    	; 0xf8 <rfm12_write>
+    rfm12_write(POWER_TX);      // включить передатик
+ 1ce:	88 e3       	ldi	r24, 0x38	; 56
+ 1d0:	92 e8       	ldi	r25, 0x82	; 130
+ 1d2:	92 df       	rcall	.-220    	; 0xf8 <rfm12_write>
+
+    return 0;
+ 1d4:	80 e0       	ldi	r24, 0x00	; 0
+ 1d6:	03 c0       	rjmp	.+6      	; 0x1de <rfm12_transmit_pack+0xb4>
+uint8_t rfm12_transmit_pack( uint8_t nbytes )
+{
+    uint8_t i=0;
+    uint16_t crc = 0xffff;
+
+    if (nbytes > DATA_BYTES_MAX)    return 1;
+ 1d8:	81 e0       	ldi	r24, 0x01	; 1
+ 1da:	01 c0       	rjmp	.+2      	; 0x1de <rfm12_transmit_pack+0xb4>
+
+    switch (rfm_condition)
+    {
+        case TRANSMIT_PACK :
+        {
+            return 2;
+ 1dc:	82 e0       	ldi	r24, 0x02	; 2
+
+    rfm12_write(CONFIGURATION_SETTING | TX_REG_MASK);
+    rfm12_write(POWER_TX);      // включить передатик
+
+    return 0;
+}
+ 1de:	df 91       	pop	r29
+ 1e0:	cf 91       	pop	r28
+ 1e2:	1f 91       	pop	r17
+ 1e4:	08 95       	ret
+
+000001e6 <rfm12_wait_pack>:
+
+
+
+uint8_t rfm12_wait_pack(void)
+{
+    switch (rfm_condition)
+ 1e6:	80 91 65 00 	lds	r24, 0x0065
+ 1ea:	81 30       	cpi	r24, 0x01	; 1
+ 1ec:	89 f0       	breq	.+34     	; 0x210 <rfm12_wait_pack+0x2a>
+ 1ee:	82 30       	cpi	r24, 0x02	; 2
+ 1f0:	89 f0       	breq	.+34     	; 0x214 <rfm12_wait_pack+0x2e>
+
+        case RECEIVE_PACK :
+            return 2;
+    }
+
+    rfm_condition = RECEIVE_PACK;
+ 1f2:	82 e0       	ldi	r24, 0x02	; 2
+ 1f4:	80 93 65 00 	sts	0x0065, r24
+    pack_size = pack_counter = 0;
+ 1f8:	10 92 64 00 	sts	0x0064, r1
+ 1fc:	10 92 63 00 	sts	0x0063, r1
+
+    rfm12_write(FIFO_AND_RESET | FIFO_EN_MASK);
+ 200:	83 e8       	ldi	r24, 0x83	; 131
+ 202:	9a ec       	ldi	r25, 0xCA	; 202
+ 204:	79 df       	rcall	.-270    	; 0xf8 <rfm12_write>
+    rfm12_write(POWER_RX);
+ 206:	88 ec       	ldi	r24, 0xC8	; 200
+ 208:	92 e8       	ldi	r25, 0x82	; 130
+ 20a:	76 df       	rcall	.-276    	; 0xf8 <rfm12_write>
+    return 0;
+ 20c:	80 e0       	ldi	r24, 0x00	; 0
+ 20e:	08 95       	ret
+uint8_t rfm12_wait_pack(void)
+{
+    switch (rfm_condition)
+    {
+        case TRANSMIT_PACK :
+            return 1;
+ 210:	81 e0       	ldi	r24, 0x01	; 1
+ 212:	08 95       	ret
+
+        case RECEIVE_PACK :
+            return 2;
+ 214:	82 e0       	ldi	r24, 0x02	; 2
+    pack_size = pack_counter = 0;
+
+    rfm12_write(FIFO_AND_RESET | FIFO_EN_MASK);
+    rfm12_write(POWER_RX);
+    return 0;
+}
+ 216:	08 95       	ret
+
+00000218 <rfm12_sleep>:
+
+
+
+uint8_t rfm12_sleep(void)
+{
+ 218:	cf 93       	push	r28
+    uint8_t buffer;
+
+    rfm_condition = SLEEP;
+ 21a:	83 e0       	ldi	r24, 0x03	; 3
+ 21c:	80 93 65 00 	sts	0x0065, r24
+    pack_counter = 0;
+ 220:	10 92 64 00 	sts	0x0064, r1
+
+    rfm12_write(POWER_SC);
+ 224:	88 e1       	ldi	r24, 0x18	; 24
+ 226:	92 e8       	ldi	r25, 0x82	; 130
+ 228:	67 df       	rcall	.-306    	; 0xf8 <rfm12_write>
+    buffer = rfm12_write(STATUS_READ);
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
+ 22c:	90 e0       	ldi	r25, 0x00	; 0
+ 22e:	64 df       	rcall	.-312    	; 0xf8 <rfm12_write>
+ 230:	c8 2f       	mov	r28, r24
+    rfm12_write(FIFO_AND_RESET);            // выкл. и обнулить FIFO
+ 232:	81 e8       	ldi	r24, 0x81	; 129
+ 234:	9a ec       	ldi	r25, 0xCA	; 202
+ 236:	60 df       	rcall	.-320    	; 0xf8 <rfm12_write>
+    rfm12_write(CONFIGURATION_SETTING);     // выкл. и обнулить буфер передатчика
+ 238:	87 e5       	ldi	r24, 0x57	; 87
+ 23a:	90 e8       	ldi	r25, 0x80	; 128
+ 23c:	5d df       	rcall	.-326    	; 0xf8 <rfm12_write>
+
+    return buffer;
+}
+ 23e:	8c 2f       	mov	r24, r28
+ 240:	cf 91       	pop	r28
+ 242:	08 95       	ret
+
+00000244 <__vector_2>:
+extern volatile uint8_t channel;
+volatile uint8_t rfm_condition = 0, pack_buffer[PACKET_SIZE], pack_counter = 0, pack_size = 0, error = 0, nisr;
+
+
+ISR(INT1_vect)
+{
+ 244:	1f 92       	push	r1
+ 246:	0f 92       	push	r0
+ 248:	0f b6       	in	r0, 0x3f	; 63
+ 24a:	0f 92       	push	r0
+ 24c:	11 24       	eor	r1, r1
+ 24e:	2f 93       	push	r18
+ 250:	3f 93       	push	r19
+ 252:	4f 93       	push	r20
+ 254:	5f 93       	push	r21
+ 256:	6f 93       	push	r22
+ 258:	7f 93       	push	r23
+ 25a:	8f 93       	push	r24
+ 25c:	9f 93       	push	r25
+ 25e:	af 93       	push	r26
+ 260:	bf 93       	push	r27
+ 262:	cf 93       	push	r28
+ 264:	ef 93       	push	r30
+ 266:	ff 93       	push	r31
+    ++nisr;
+ 268:	80 91 6e 00 	lds	r24, 0x006E
+ 26c:	8f 5f       	subi	r24, 0xFF	; 255
+ 26e:	80 93 6e 00 	sts	0x006E, r24
+
+	cli();
+ 272:	f8 94       	cli
+
+	switch (rfm_condition)
+ 274:	80 91 65 00 	lds	r24, 0x0065
+ 278:	81 30       	cpi	r24, 0x01	; 1
+ 27a:	19 f0       	breq	.+6      	; 0x282 <__vector_2+0x3e>
+ 27c:	82 30       	cpi	r24, 0x02	; 2
+ 27e:	19 f1       	breq	.+70     	; 0x2c6 <__vector_2+0x82>
+ 280:	62 c0       	rjmp	.+196    	; 0x346 <__vector_2+0x102>
+	{
+        case TRANSMIT_PACK :
+        {
+            if ( (pack_counter < pack_size) && (pack_counter < PACKET_SIZE) )
+ 282:	90 91 64 00 	lds	r25, 0x0064
+ 286:	80 91 63 00 	lds	r24, 0x0063
+ 28a:	98 17       	cp	r25, r24
+ 28c:	d0 f4       	brcc	.+52     	; 0x2c2 <__vector_2+0x7e>
+ 28e:	80 91 64 00 	lds	r24, 0x0064
+ 292:	80 32       	cpi	r24, 0x20	; 32
+ 294:	b0 f4       	brcc	.+44     	; 0x2c2 <__vector_2+0x7e>
+                rfm12_write(TX_REGISTER_WRITE | pack_buffer[pack_counter++]);
+ 296:	e0 91 64 00 	lds	r30, 0x0064
+ 29a:	81 e0       	ldi	r24, 0x01	; 1
+ 29c:	8e 0f       	add	r24, r30
+ 29e:	80 93 64 00 	sts	0x0064, r24
+ 2a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a4:	e1 59       	subi	r30, 0x91	; 145
+ 2a6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2a8:	80 81       	ld	r24, Z
+ 2aa:	90 e0       	ldi	r25, 0x00	; 0
+ 2ac:	98 6b       	ori	r25, 0xB8	; 184
+ 2ae:	24 df       	rcall	.-440    	; 0xf8 <rfm12_write>
+ 2b0:	4d c0       	rjmp	.+154    	; 0x34c <__vector_2+0x108>
+                uint16_t crc=0xffff;
+
+                pack_size -= 2;
+                for(i=0 ; i<pack_size ; ++i)    crc = _crc16_update(crc, pack_buffer[i]);
+
+                if( (((uint8_t)(crc>>8)) != pack_buffer[pack_size]) || (((uint8_t)crc) != pack_buffer[pack_size+1]) )  //проверка crc
+ 2b2:	e0 91 63 00 	lds	r30, 0x0063
+ 2b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b8:	e1 59       	subi	r30, 0x91	; 145
+ 2ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2bc:	20 81       	ld	r18, Z
+ 2be:	29 17       	cp	r18, r25
+ 2c0:	a9 f1       	breq	.+106    	; 0x32c <__vector_2+0xe8>
+#ifdef  ALWAYS_RX
+                rfm12_write(CONFIGURATION_SETTING);         // чтобы обнулить регистр отправки
+                rfm_condition = SLEEP;
+                rfm12_wait_pack();
+#else
+                rfm12_sleep();
+ 2c2:	aa df       	rcall	.-172    	; 0x218 <rfm12_sleep>
+ 2c4:	43 c0       	rjmp	.+134    	; 0x34c <__vector_2+0x108>
+
+        case RECEIVE_PACK :
+        {
+            uint8_t buffer;
+
+            buffer = (uint8_t)(rfm12_write(READ_FIFO));
+ 2c6:	80 e0       	ldi	r24, 0x00	; 0
+ 2c8:	90 eb       	ldi	r25, 0xB0	; 176
+ 2ca:	16 df       	rcall	.-468    	; 0xf8 <rfm12_write>
+
+            if (pack_size == 0)
+ 2cc:	90 91 63 00 	lds	r25, 0x0063
+ 2d0:	91 11       	cpse	r25, r1
+ 2d2:	03 c0       	rjmp	.+6      	; 0x2da <__vector_2+0x96>
+                pack_size = buffer;                                                 // первый байт определяет размер пакета
+ 2d4:	80 93 63 00 	sts	0x0063, r24
+ 2d8:	39 c0       	rjmp	.+114    	; 0x34c <__vector_2+0x108>
+            else {if ( (pack_counter < pack_size) && (pack_counter < PACKET_SIZE) )
+ 2da:	20 91 64 00 	lds	r18, 0x0064
+ 2de:	90 91 63 00 	lds	r25, 0x0063
+ 2e2:	29 17       	cp	r18, r25
+ 2e4:	78 f4       	brcc	.+30     	; 0x304 <__vector_2+0xc0>
+ 2e6:	90 91 64 00 	lds	r25, 0x0064
+ 2ea:	90 32       	cpi	r25, 0x20	; 32
+ 2ec:	58 f4       	brcc	.+22     	; 0x304 <__vector_2+0xc0>
+                pack_buffer[pack_counter++] = buffer;
+ 2ee:	e0 91 64 00 	lds	r30, 0x0064
+ 2f2:	91 e0       	ldi	r25, 0x01	; 1
+ 2f4:	9e 0f       	add	r25, r30
+ 2f6:	90 93 64 00 	sts	0x0064, r25
+ 2fa:	f0 e0       	ldi	r31, 0x00	; 0
+ 2fc:	e1 59       	subi	r30, 0x91	; 145
+ 2fe:	ff 4f       	sbci	r31, 0xFF	; 255
+ 300:	80 83       	st	Z, r24
+ 302:	24 c0       	rjmp	.+72     	; 0x34c <__vector_2+0x108>
+            else
+            {
+                uint8_t i;
+                uint16_t crc=0xffff;
+
+                pack_size -= 2;
+ 304:	80 91 63 00 	lds	r24, 0x0063
+ 308:	82 50       	subi	r24, 0x02	; 2
+ 30a:	80 93 63 00 	sts	0x0063, r24
+            else {if ( (pack_counter < pack_size) && (pack_counter < PACKET_SIZE) )
+                pack_buffer[pack_counter++] = buffer;
+            else
+            {
+                uint8_t i;
+                uint16_t crc=0xffff;
+ 30e:	8f ef       	ldi	r24, 0xFF	; 255
+ 310:	9f ef       	ldi	r25, 0xFF	; 255
+
+                pack_size -= 2;
+                for(i=0 ; i<pack_size ; ++i)    crc = _crc16_update(crc, pack_buffer[i]);
+ 312:	c0 e0       	ldi	r28, 0x00	; 0
+ 314:	20 91 63 00 	lds	r18, 0x0063
+ 318:	c2 17       	cp	r28, r18
+ 31a:	58 f6       	brcc	.-106    	; 0x2b2 <__vector_2+0x6e>
+ 31c:	ec 2f       	mov	r30, r28
+ 31e:	f0 e0       	ldi	r31, 0x00	; 0
+ 320:	e1 59       	subi	r30, 0x91	; 145
+ 322:	ff 4f       	sbci	r31, 0xFF	; 255
+ 324:	60 81       	ld	r22, Z
+ 326:	d0 de       	rcall	.-608    	; 0xc8 <_crc16_update>
+ 328:	cf 5f       	subi	r28, 0xFF	; 255
+ 32a:	f4 cf       	rjmp	.-24     	; 0x314 <__vector_2+0xd0>
+
+                if( (((uint8_t)(crc>>8)) != pack_buffer[pack_size]) || (((uint8_t)crc) != pack_buffer[pack_size+1]) )  //проверка crc
+ 32c:	e0 91 63 00 	lds	r30, 0x0063
+ 330:	f0 e0       	ldi	r31, 0x00	; 0
+ 332:	e0 59       	subi	r30, 0x90	; 144
+ 334:	ff 4f       	sbci	r31, 0xFF	; 255
+ 336:	90 81       	ld	r25, Z
+ 338:	98 13       	cpse	r25, r24
+ 33a:	c3 cf       	rjmp	.-122    	; 0x2c2 <__vector_2+0x7e>
+                    rfm12_sleep();
+#endif
+                }
+                else
+                {
+                    rfm12_sleep();
+ 33c:	6d df       	rcall	.-294    	; 0x218 <rfm12_sleep>
+                    rfm_condition = NEW_PACK;
+ 33e:	84 e0       	ldi	r24, 0x04	; 4
+ 340:	80 93 65 00 	sts	0x0065, r24
+ 344:	03 c0       	rjmp	.+6      	; 0x34c <__vector_2+0x108>
+            break;
+        }
+
+        default :
+        {
+            error = rfm12_sleep();
+ 346:	68 df       	rcall	.-304    	; 0x218 <rfm12_sleep>
+ 348:	80 93 62 00 	sts	0x0062, r24
+            break;
+        }
+	}
+    sei();
+ 34c:	78 94       	sei
+}
+ 34e:	ff 91       	pop	r31
+ 350:	ef 91       	pop	r30
+ 352:	cf 91       	pop	r28
+ 354:	bf 91       	pop	r27
+ 356:	af 91       	pop	r26
+ 358:	9f 91       	pop	r25
+ 35a:	8f 91       	pop	r24
+ 35c:	7f 91       	pop	r23
+ 35e:	6f 91       	pop	r22
+ 360:	5f 91       	pop	r21
+ 362:	4f 91       	pop	r20
+ 364:	3f 91       	pop	r19
+ 366:	2f 91       	pop	r18
+ 368:	0f 90       	pop	r0
+ 36a:	0f be       	out	0x3f, r0	; 63
+ 36c:	0f 90       	pop	r0
+ 36e:	1f 90       	pop	r1
+ 370:	18 95       	reti
+
+00000372 <rfm12_init>:
+}
+
+
+void rfm12_init(void)
+{
+	RFM12_SPI_DDR |= RFM12_SPI_MASK; 					// инициализация SPI
+ 372:	87 b3       	in	r24, 0x17	; 23
+ 374:	80 6b       	ori	r24, 0xB0	; 176
+ 376:	87 bb       	out	0x17, r24	; 23
+	RFM12_SPI_PORT |= (1<<RFM12_EN);
+ 378:	c4 9a       	sbi	0x18, 4	; 24
+
+    GIMSK |= (1<<INT1);
+ 37a:	8b b7       	in	r24, 0x3b	; 59
+ 37c:	80 68       	ori	r24, 0x80	; 128
+ 37e:	8b bf       	out	0x3b, r24	; 59
+    SPCR = RFM12_SPCR;
+#endif
+
+//    _delay_ms(100);
+
+    rfm12_write(CONFIGURATION_SETTING);
+ 380:	87 e5       	ldi	r24, 0x57	; 87
+ 382:	90 e8       	ldi	r25, 0x80	; 128
+ 384:	b9 de       	rcall	.-654    	; 0xf8 <rfm12_write>
+    rfm12_write(FREQUENCY_SETTING);
+ 386:	8b ed       	ldi	r24, 0xDB	; 219
+ 388:	94 ea       	ldi	r25, 0xA4	; 164
+ 38a:	b6 de       	rcall	.-660    	; 0xf8 <rfm12_write>
+    rfm12_write(DATA_RATE);
+ 38c:	83 e2       	ldi	r24, 0x23	; 35
+ 38e:	96 ec       	ldi	r25, 0xC6	; 198
+ 390:	b3 de       	rcall	.-666    	; 0xf8 <rfm12_write>
+    rfm12_write(RECEIVER_CONTROL);
+ 392:	89 ea       	ldi	r24, 0xA9	; 169
+ 394:	94 e9       	ldi	r25, 0x94	; 148
+ 396:	b0 de       	rcall	.-672    	; 0xf8 <rfm12_write>
+    rfm12_write(DATA_FILTER);
+ 398:	8c e2       	ldi	r24, 0x2C	; 44
+ 39a:	92 ec       	ldi	r25, 0xC2	; 194
+ 39c:	ad de       	rcall	.-678    	; 0xf8 <rfm12_write>
+    rfm12_write(FIFO_AND_RESET);
+ 39e:	81 e8       	ldi	r24, 0x81	; 129
+ 3a0:	9a ec       	ldi	r25, 0xCA	; 202
+ 3a2:	aa de       	rcall	.-684    	; 0xf8 <rfm12_write>
+    rfm12_write(SYNCHRON_PATTERN);
+ 3a4:	84 ed       	ldi	r24, 0xD4	; 212
+ 3a6:	9e ec       	ldi	r25, 0xCE	; 206
+ 3a8:	a7 de       	rcall	.-690    	; 0xf8 <rfm12_write>
+    rfm12_write(AFC_COMMAND);
+ 3aa:	87 ea       	ldi	r24, 0xA7	; 167
+ 3ac:	94 ec       	ldi	r25, 0xC4	; 196
+ 3ae:	a4 de       	rcall	.-696    	; 0xf8 <rfm12_write>
+    rfm12_write(TX_CONFIGURATION);
+ 3b0:	80 e1       	ldi	r24, 0x10	; 16
+ 3b2:	98 e9       	ldi	r25, 0x98	; 152
+ 3b4:	a1 de       	rcall	.-702    	; 0xf8 <rfm12_write>
+    rfm12_write(PLL_SETING);
+ 3b6:	87 e7       	ldi	r24, 0x77	; 119
+ 3b8:	9c ec       	ldi	r25, 0xCC	; 204
+ 3ba:	9e de       	rcall	.-708    	; 0xf8 <rfm12_write>
+    rfm12_write(LOW_DUTY_CYCLE);
+ 3bc:	80 e0       	ldi	r24, 0x00	; 0
+ 3be:	98 ec       	ldi	r25, 0xC8	; 200
+ 3c0:	9b de       	rcall	.-714    	; 0xf8 <rfm12_write>
+    rfm12_write(WAKEUP_TIMER);
+ 3c2:	80 e0       	ldi	r24, 0x00	; 0
+ 3c4:	90 ee       	ldi	r25, 0xE0	; 224
+ 3c6:	98 de       	rcall	.-720    	; 0xf8 <rfm12_write>
+    rfm12_write(0x0000);
+ 3c8:	80 e0       	ldi	r24, 0x00	; 0
+ 3ca:	90 e0       	ldi	r25, 0x00	; 0
+ 3cc:	95 de       	rcall	.-726    	; 0xf8 <rfm12_write>
+
+    rfm_condition = pack_size = error = 0;
+ 3ce:	10 92 62 00 	sts	0x0062, r1
+ 3d2:	10 92 63 00 	sts	0x0063, r1
+ 3d6:	10 92 65 00 	sts	0x0065, r1
+#ifdef ALWAYS_RX
+    rfm12_wait_pack();
+#else
+    rfm12_sleep();
+ 3da:	1e cf       	rjmp	.-452    	; 0x218 <rfm12_sleep>
+
+000003dc <rfm12_deep_sleep>:
+}
+
+
+
+uint8_t rfm12_deep_sleep(void)
+{
+ 3dc:	cf 93       	push	r28
+    uint8_t buffer;
+
+    rfm_condition = SLEEP;
+ 3de:	83 e0       	ldi	r24, 0x03	; 3
+ 3e0:	80 93 65 00 	sts	0x0065, r24
+    pack_counter = 0;
+ 3e4:	10 92 64 00 	sts	0x0064, r1
+
+    rfm12_write(POWER_SLEEP);
+ 3e8:	81 e0       	ldi	r24, 0x01	; 1
+ 3ea:	92 e8       	ldi	r25, 0x82	; 130
+ 3ec:	85 de       	rcall	.-758    	; 0xf8 <rfm12_write>
+    buffer = rfm12_write(STATUS_READ);
+ 3ee:	80 e0       	ldi	r24, 0x00	; 0
+ 3f0:	90 e0       	ldi	r25, 0x00	; 0
+ 3f2:	82 de       	rcall	.-764    	; 0xf8 <rfm12_write>
+ 3f4:	c8 2f       	mov	r28, r24
+    rfm12_write(FIFO_AND_RESET);            // выкл. и обнулить FIFO
+ 3f6:	81 e8       	ldi	r24, 0x81	; 129
+ 3f8:	9a ec       	ldi	r25, 0xCA	; 202
+ 3fa:	7e de       	rcall	.-772    	; 0xf8 <rfm12_write>
+    rfm12_write(CONFIGURATION_SETTING);     // выкл. и обнулить буфер передатчика
+ 3fc:	87 e5       	ldi	r24, 0x57	; 87
+ 3fe:	90 e8       	ldi	r25, 0x80	; 128
+ 400:	7b de       	rcall	.-778    	; 0xf8 <rfm12_write>
+
+    return buffer;
+}
+ 402:	8c 2f       	mov	r24, r28
+ 404:	cf 91       	pop	r28
+ 406:	08 95       	ret
+
+00000408 <rfm12_channel>:
+ 408:	90 e0       	ldi	r25, 0x00	; 0
+ 40a:	fc 01       	movw	r30, r24
+ 40c:	31 97       	sbiw	r30, 0x01	; 1
+ 40e:	ee 30       	cpi	r30, 0x0E	; 14
+ 410:	f1 05       	cpc	r31, r1
+ 412:	68 f5       	brcc	.+90     	; 0x46e <rfm12_channel+0x66>
+ 414:	eb 5e       	subi	r30, 0xEB	; 235
+ 416:	ff 4f       	sbci	r31, 0xFF	; 255
+ 418:	09 94       	ijmp
+ 41a:	8b ed       	ldi	r24, 0xDB	; 219
+ 41c:	94 ea       	ldi	r25, 0xA4	; 164
+ 41e:	26 c0       	rjmp	.+76     	; 0x46c <rfm12_channel+0x64>
+ 420:	8c e0       	ldi	r24, 0x0C	; 12
+ 422:	95 ea       	ldi	r25, 0xA5	; 165
+ 424:	23 c0       	rjmp	.+70     	; 0x46c <rfm12_channel+0x64>
+ 426:	8c e3       	ldi	r24, 0x3C	; 60
+ 428:	95 ea       	ldi	r25, 0xA5	; 165
+ 42a:	20 c0       	rjmp	.+64     	; 0x46c <rfm12_channel+0x64>
+ 42c:	8c e6       	ldi	r24, 0x6C	; 108
+ 42e:	95 ea       	ldi	r25, 0xA5	; 165
+ 430:	1d c0       	rjmp	.+58     	; 0x46c <rfm12_channel+0x64>
+ 432:	8b e9       	ldi	r24, 0x9B	; 155
+ 434:	95 ea       	ldi	r25, 0xA5	; 165
+ 436:	1a c0       	rjmp	.+52     	; 0x46c <rfm12_channel+0x64>
+ 438:	8b ec       	ldi	r24, 0xCB	; 203
+ 43a:	95 ea       	ldi	r25, 0xA5	; 165
+ 43c:	17 c0       	rjmp	.+46     	; 0x46c <rfm12_channel+0x64>
+ 43e:	8b ef       	ldi	r24, 0xFB	; 251
+ 440:	95 ea       	ldi	r25, 0xA5	; 165
+ 442:	14 c0       	rjmp	.+40     	; 0x46c <rfm12_channel+0x64>
+ 444:	8c e2       	ldi	r24, 0x2C	; 44
+ 446:	96 ea       	ldi	r25, 0xA6	; 166
+ 448:	11 c0       	rjmp	.+34     	; 0x46c <rfm12_channel+0x64>
+ 44a:	8c e5       	ldi	r24, 0x5C	; 92
+ 44c:	96 ea       	ldi	r25, 0xA6	; 166
+ 44e:	0e c0       	rjmp	.+28     	; 0x46c <rfm12_channel+0x64>
+ 450:	8c e8       	ldi	r24, 0x8C	; 140
+ 452:	96 ea       	ldi	r25, 0xA6	; 166
+ 454:	0b c0       	rjmp	.+22     	; 0x46c <rfm12_channel+0x64>
+ 456:	8b eb       	ldi	r24, 0xBB	; 187
+ 458:	96 ea       	ldi	r25, 0xA6	; 166
+ 45a:	08 c0       	rjmp	.+16     	; 0x46c <rfm12_channel+0x64>
+ 45c:	8b ee       	ldi	r24, 0xEB	; 235
+ 45e:	96 ea       	ldi	r25, 0xA6	; 166
+ 460:	05 c0       	rjmp	.+10     	; 0x46c <rfm12_channel+0x64>
+ 462:	8b e1       	ldi	r24, 0x1B	; 27
+ 464:	97 ea       	ldi	r25, 0xA7	; 167
+ 466:	02 c0       	rjmp	.+4      	; 0x46c <rfm12_channel+0x64>
+ 468:	8c e4       	ldi	r24, 0x4C	; 76
+ 46a:	97 ea       	ldi	r25, 0xA7	; 167
+ 46c:	45 ce       	rjmp	.-886    	; 0xf8 <rfm12_write>
+ 46e:	08 95       	ret
+
+00000470 <main>:
+
+
+
+int main(void)
+{
+	DDRD = 0b01000000;
+ 470:	80 e4       	ldi	r24, 0x40	; 64
+ 472:	81 bb       	out	0x11, r24	; 17
+	PORTD = 0b00110100;
+ 474:	84 e3       	ldi	r24, 0x34	; 52
+ 476:	82 bb       	out	0x12, r24	; 18
+
+	TCCR0B = 0x02;          // вкл. таймер-счетчик 0, делитель 8
+ 478:	82 e0       	ldi	r24, 0x02	; 2
+ 47a:	83 bf       	out	0x33, r24	; 51
+//    TCCR1B = 0x02;          // вкл. таймер-счетчик 1, делитель 8
+
+	rfm12_init();					// инициализация RFM
+ 47c:	7a df       	rcall	.-268    	; 0x372 <rfm12_init>
+	rfm12_deep_sleep();
+ 47e:	ae df       	rcall	.-164    	; 0x3dc <rfm12_deep_sleep>
+
+    id = eeprom_read_byte(&id_eep);
+ 480:	81 e0       	ldi	r24, 0x01	; 1
+ 482:	90 e0       	ldi	r25, 0x00	; 0
+ 484:	d4 d0       	rcall	.+424    	; 0x62e <__eerd_byte_tn2313>
+ 486:	80 93 61 00 	sts	0x0061, r24
+    rfm12_channel(eeprom_read_byte(&channel_eep));
+ 48a:	80 e0       	ldi	r24, 0x00	; 0
+ 48c:	90 e0       	ldi	r25, 0x00	; 0
+ 48e:	cf d0       	rcall	.+414    	; 0x62e <__eerd_byte_tn2313>
+ 490:	bb df       	rcall	.-138    	; 0x408 <rfm12_channel>
+
+	sei();
+ 492:	78 94       	sei
+ 494:	04 ec       	ldi	r16, 0xC4	; 196
+ 496:	19 e0       	ldi	r17, 0x09	; 9
+ 498:	88 e8       	ldi	r24, 0x88	; 136
+ 49a:	e8 2e       	mov	r14, r24
+ 49c:	83 e1       	ldi	r24, 0x13	; 19
+ 49e:	f8 2e       	mov	r15, r24
+            {
+                if(pack_buffer[1] == ID_GET)
+                {
+                    id = pack_buffer[2];
+                    rfm12_channel(pack_buffer[3]);
+                    i = 0xee;
+ 4a0:	9e ee       	ldi	r25, 0xEE	; 238
+ 4a2:	b9 2e       	mov	r11, r25
+        S = 0;
+
+        led_counter = 0;
+        if (i < (NSENDS-1) )    led_flash = LED_NFLASH_OK;
+        else if (i == 0xee)     led_flash = LED_NFLASH_ID;
+        else                    led_flash = LED_NFLASH_ERR;
+ 4a4:	24 e0       	ldi	r18, 0x04	; 4
+ 4a6:	a2 2e       	mov	r10, r18
+        rfm12_deep_sleep();
+        S = 0;
+
+        led_counter = 0;
+        if (i < (NSENDS-1) )    led_flash = LED_NFLASH_OK;
+        else if (i == 0xee)     led_flash = LED_NFLASH_ID;
+ 4a8:	38 e0       	ldi	r19, 0x08	; 8
+ 4aa:	93 2e       	mov	r9, r19
+
+        rfm12_deep_sleep();
+        S = 0;
+
+        led_counter = 0;
+        if (i < (NSENDS-1) )    led_flash = LED_NFLASH_OK;
+ 4ac:	46 e0       	ldi	r20, 0x06	; 6
+ 4ae:	84 2e       	mov	r8, r20
+ 4b0:	50 e5       	ldi	r21, 0x50	; 80
+ 4b2:	c5 2e       	mov	r12, r21
+ 4b4:	53 ec       	ldi	r21, 0xC3	; 195
+ 4b6:	d5 2e       	mov	r13, r21
+ 4b8:	c4 ed       	ldi	r28, 0xD4	; 212
+ 4ba:	d0 e3       	ldi	r29, 0x30	; 48
+	sei();
+
+/// Основной цикл, отслеживает состояния кнопок, если нажата какая либо, отправляет вызов или отмену.
+    while(1)
+    {
+        GIMSK |= (1<<INT0);
+ 4bc:	8b b7       	in	r24, 0x3b	; 59
+ 4be:	80 64       	ori	r24, 0x40	; 64
+ 4c0:	8b bf       	out	0x3b, r24	; 59
+        sleep_enable();
+ 4c2:	85 b7       	in	r24, 0x35	; 53
+ 4c4:	80 62       	ori	r24, 0x20	; 32
+ 4c6:	85 bf       	out	0x35, r24	; 53
+        set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+ 4c8:	85 b7       	in	r24, 0x35	; 53
+ 4ca:	80 65       	ori	r24, 0x50	; 80
+ 4cc:	85 bf       	out	0x35, r24	; 53
+        sleep_mode();
+ 4ce:	85 b7       	in	r24, 0x35	; 53
+ 4d0:	80 62       	ori	r24, 0x20	; 32
+ 4d2:	85 bf       	out	0x35, r24	; 53
+ 4d4:	88 95       	sleep
+ 4d6:	85 b7       	in	r24, 0x35	; 53
+ 4d8:	8f 7d       	andi	r24, 0xDF	; 223
+ 4da:	85 bf       	out	0x35, r24	; 53
+ 4dc:	c8 01       	movw	r24, r16
+ 4de:	01 97       	sbiw	r24, 0x01	; 1
+ 4e0:	f1 f7       	brne	.-4      	; 0x4de <main+0x6e>
+        _delay_ms(10);                           // хрен знает зачем
+
+        GIMSK &= ~(1<<INT0);
+ 4e2:	8b b7       	in	r24, 0x3b	; 59
+ 4e4:	8f 7b       	andi	r24, 0xBF	; 191
+ 4e6:	8b bf       	out	0x3b, r24	; 59
+        wait_time = TCNT0;
+ 4e8:	82 b7       	in	r24, 0x32	; 50
+ 4ea:	90 e0       	ldi	r25, 0x00	; 0
+ 4ec:	90 93 6b 00 	sts	0x006B, r25
+ 4f0:	80 93 6a 00 	sts	0x006A, r24
+        wait_time = (wait_time | 0x03) & 0x0f;
+ 4f4:	80 91 6a 00 	lds	r24, 0x006A
+ 4f8:	90 91 6b 00 	lds	r25, 0x006B
+ 4fc:	8c 70       	andi	r24, 0x0C	; 12
+ 4fe:	99 27       	eor	r25, r25
+ 500:	83 60       	ori	r24, 0x03	; 3
+ 502:	90 93 6b 00 	sts	0x006B, r25
+ 506:	80 93 6a 00 	sts	0x006A, r24
+
+        for( i=0 ; i<NSENDS ; ++i )
+ 50a:	10 92 68 00 	sts	0x0068, r1
+ 50e:	80 91 68 00 	lds	r24, 0x0068
+ 512:	8a 30       	cpi	r24, 0x0A	; 10
+ 514:	08 f0       	brcs	.+2      	; 0x518 <main+0xa8>
+ 516:	5c c0       	rjmp	.+184    	; 0x5d0 <main+0x160>
+        {
+            if(S==1)        transmit_command(CALL);
+ 518:	80 91 60 00 	lds	r24, 0x0060
+ 51c:	81 30       	cpi	r24, 0x01	; 1
+ 51e:	21 f0       	breq	.+8      	; 0x528 <main+0xb8>
+            else if(S==2)   transmit_command(CANCEL);
+ 520:	80 91 60 00 	lds	r24, 0x0060
+ 524:	82 30       	cpi	r24, 0x02	; 2
+ 526:	09 f4       	brne	.+2      	; 0x52a <main+0xba>
+ 528:	bf dd       	rcall	.-1154   	; 0xa8 <transmit_command>
+
+            rfm12_wait_pack();
+ 52a:	5d de       	rcall	.-838    	; 0x1e6 <rfm12_wait_pack>
+
+            timeout = 0;
+ 52c:	10 92 6d 00 	sts	0x006D, r1
+ 530:	10 92 6c 00 	sts	0x006C, r1
+            TCNT1=0;
+ 534:	1d bc       	out	0x2d, r1	; 45
+ 536:	1c bc       	out	0x2c, r1	; 44
+            while( (rfm_condition == RECEIVE_PACK) && (timeout < wait_time) )
+ 538:	80 91 65 00 	lds	r24, 0x0065
+ 53c:	82 30       	cpi	r24, 0x02	; 2
+ 53e:	c1 f4       	brne	.+48     	; 0x570 <main+0x100>
+ 540:	20 91 6c 00 	lds	r18, 0x006C
+ 544:	30 91 6d 00 	lds	r19, 0x006D
+ 548:	80 91 6a 00 	lds	r24, 0x006A
+ 54c:	90 91 6b 00 	lds	r25, 0x006B
+ 550:	28 17       	cp	r18, r24
+ 552:	39 07       	cpc	r19, r25
+ 554:	68 f4       	brcc	.+26     	; 0x570 <main+0x100>
+ 556:	c7 01       	movw	r24, r14
+ 558:	01 97       	sbiw	r24, 0x01	; 1
+ 55a:	f1 f7       	brne	.-4      	; 0x558 <main+0xe8>
+            {
+//                while( (TIFR & (1<<TOV1)) == 0 );
+//                TIFR |= (1<<TOV1);               // обнуляется флаг
+                _delay_ms(20);
+                ++timeout;
+ 55c:	80 91 6c 00 	lds	r24, 0x006C
+ 560:	90 91 6d 00 	lds	r25, 0x006D
+ 564:	01 96       	adiw	r24, 0x01	; 1
+ 566:	90 93 6d 00 	sts	0x006D, r25
+ 56a:	80 93 6c 00 	sts	0x006C, r24
+ 56e:	e4 cf       	rjmp	.-56     	; 0x538 <main+0xc8>
+            }
+
+            if( (rfm_condition == NEW_PACK) && (pack_buffer[0] == BUTTON) )             // если какойто пакет принят
+ 570:	80 91 65 00 	lds	r24, 0x0065
+ 574:	84 30       	cpi	r24, 0x04	; 4
+ 576:	31 f5       	brne	.+76     	; 0x5c4 <main+0x154>
+ 578:	80 91 6f 00 	lds	r24, 0x006F
+ 57c:	80 35       	cpi	r24, 0x50	; 80
+ 57e:	11 f5       	brne	.+68     	; 0x5c4 <main+0x154>
+            {
+                if(pack_buffer[1] == ID_GET)
+ 580:	80 91 70 00 	lds	r24, 0x0070
+ 584:	89 34       	cpi	r24, 0x49	; 73
+ 586:	a1 f4       	brne	.+40     	; 0x5b0 <main+0x140>
+                {
+                    id = pack_buffer[2];
+ 588:	80 91 71 00 	lds	r24, 0x0071
+ 58c:	80 93 61 00 	sts	0x0061, r24
+                    rfm12_channel(pack_buffer[3]);
+ 590:	80 91 72 00 	lds	r24, 0x0072
+ 594:	39 df       	rcall	.-398    	; 0x408 <rfm12_channel>
+                    i = 0xee;
+ 596:	b0 92 68 00 	sts	0x0068, r11
+
+                    eeprom_write_byte(&id_eep, pack_buffer[2]);
+ 59a:	60 91 71 00 	lds	r22, 0x0071
+ 59e:	81 e0       	ldi	r24, 0x01	; 1
+ 5a0:	90 e0       	ldi	r25, 0x00	; 0
+ 5a2:	4d d0       	rcall	.+154    	; 0x63e <__eewr_byte_tn2313>
+                    eeprom_write_byte(&channel_eep, pack_buffer[3]);
+ 5a4:	60 91 72 00 	lds	r22, 0x0072
+ 5a8:	80 e0       	ldi	r24, 0x00	; 0
+ 5aa:	90 e0       	ldi	r25, 0x00	; 0
+ 5ac:	48 d0       	rcall	.+144    	; 0x63e <__eewr_byte_tn2313>
+                    break;
+ 5ae:	10 c0       	rjmp	.+32     	; 0x5d0 <main+0x160>
+                }
+                else if( (pack_buffer[1] == ACKN) | (pack_buffer[2] == id) )
+ 5b0:	80 91 70 00 	lds	r24, 0x0070
+ 5b4:	20 91 71 00 	lds	r18, 0x0071
+ 5b8:	90 91 61 00 	lds	r25, 0x0061
+ 5bc:	29 17       	cp	r18, r25
+ 5be:	41 f0       	breq	.+16     	; 0x5d0 <main+0x160>
+ 5c0:	83 30       	cpi	r24, 0x03	; 3
+ 5c2:	31 f0       	breq	.+12     	; 0x5d0 <main+0x160>
+
+        GIMSK &= ~(1<<INT0);
+        wait_time = TCNT0;
+        wait_time = (wait_time | 0x03) & 0x0f;
+
+        for( i=0 ; i<NSENDS ; ++i )
+ 5c4:	80 91 68 00 	lds	r24, 0x0068
+ 5c8:	8f 5f       	subi	r24, 0xFF	; 255
+ 5ca:	80 93 68 00 	sts	0x0068, r24
+ 5ce:	9f cf       	rjmp	.-194    	; 0x50e <main+0x9e>
+                else if( (pack_buffer[1] == ACKN) | (pack_buffer[2] == id) )
+                    break;
+            }
+        }
+
+        rfm12_deep_sleep();
+ 5d0:	05 df       	rcall	.-502    	; 0x3dc <rfm12_deep_sleep>
+        S = 0;
+ 5d2:	10 92 60 00 	sts	0x0060, r1
+
+        led_counter = 0;
+ 5d6:	10 92 67 00 	sts	0x0067, r1
+ 5da:	10 92 66 00 	sts	0x0066, r1
+        if (i < (NSENDS-1) )    led_flash = LED_NFLASH_OK;
+ 5de:	80 91 68 00 	lds	r24, 0x0068
+ 5e2:	89 30       	cpi	r24, 0x09	; 9
+ 5e4:	18 f4       	brcc	.+6      	; 0x5ec <main+0x17c>
+ 5e6:	80 92 69 00 	sts	0x0069, r8
+ 5ea:	15 c0       	rjmp	.+42     	; 0x616 <main+0x1a6>
+        else if (i == 0xee)     led_flash = LED_NFLASH_ID;
+ 5ec:	8e 3e       	cpi	r24, 0xEE	; 238
+ 5ee:	19 f4       	brne	.+6      	; 0x5f6 <main+0x186>
+ 5f0:	90 92 69 00 	sts	0x0069, r9
+ 5f4:	10 c0       	rjmp	.+32     	; 0x616 <main+0x1a6>
+        else                    led_flash = LED_NFLASH_ERR;
+ 5f6:	a0 92 69 00 	sts	0x0069, r10
+ 5fa:	0d c0       	rjmp	.+26     	; 0x616 <main+0x1a6>
+
+        for( ; led_flash>0 ; --led_flash)
+        {
+            if(led_flash & 0x01)    LED_OFF;
+ 5fc:	80 91 69 00 	lds	r24, 0x0069
+ 600:	80 ff       	sbrs	r24, 0
+ 602:	0e c0       	rjmp	.+28     	; 0x620 <main+0x1b0>
+ 604:	96 98       	cbi	0x12, 6	; 18
+ 606:	c6 01       	movw	r24, r12
+ 608:	01 97       	sbiw	r24, 0x01	; 1
+ 60a:	f1 f7       	brne	.-4      	; 0x608 <main+0x198>
+        led_counter = 0;
+        if (i < (NSENDS-1) )    led_flash = LED_NFLASH_OK;
+        else if (i == 0xee)     led_flash = LED_NFLASH_ID;
+        else                    led_flash = LED_NFLASH_ERR;
+
+        for( ; led_flash>0 ; --led_flash)
+ 60c:	80 91 69 00 	lds	r24, 0x0069
+ 610:	81 50       	subi	r24, 0x01	; 1
+ 612:	80 93 69 00 	sts	0x0069, r24
+ 616:	80 91 69 00 	lds	r24, 0x0069
+ 61a:	81 11       	cpse	r24, r1
+ 61c:	ef cf       	rjmp	.-34     	; 0x5fc <main+0x18c>
+ 61e:	02 c0       	rjmp	.+4      	; 0x624 <main+0x1b4>
+        {
+            if(led_flash & 0x01)    LED_OFF;
+            else                    LED_ON;
+ 620:	96 9a       	sbi	0x12, 6	; 18
+ 622:	f1 cf       	rjmp	.-30     	; 0x606 <main+0x196>
+            _delay_ms(200);
+        }
+
+        LED_OFF;
+ 624:	96 98       	cbi	0x12, 6	; 18
+ 626:	ce 01       	movw	r24, r28
+ 628:	01 97       	sbiw	r24, 0x01	; 1
+ 62a:	f1 f7       	brne	.-4      	; 0x628 <main+0x1b8>
+ 62c:	47 cf       	rjmp	.-370    	; 0x4bc <main+0x4c>
+
+0000062e <__eerd_byte_tn2313>:
+ 62e:	e1 99       	sbic	0x1c, 1	; 28
+ 630:	fe cf       	rjmp	.-4      	; 0x62e <__eerd_byte_tn2313>
+ 632:	1f ba       	out	0x1f, r1	; 31
+ 634:	8e bb       	out	0x1e, r24	; 30
+ 636:	e0 9a       	sbi	0x1c, 0	; 28
+ 638:	99 27       	eor	r25, r25
+ 63a:	8d b3       	in	r24, 0x1d	; 29
+ 63c:	08 95       	ret
+
+0000063e <__eewr_byte_tn2313>:
+ 63e:	26 2f       	mov	r18, r22
+
+00000640 <__eewr_r18_tn2313>:
+ 640:	e1 99       	sbic	0x1c, 1	; 28
+ 642:	fe cf       	rjmp	.-4      	; 0x640 <__eewr_r18_tn2313>
+ 644:	1c ba       	out	0x1c, r1	; 28
+ 646:	1f ba       	out	0x1f, r1	; 31
+ 648:	8e bb       	out	0x1e, r24	; 30
+ 64a:	2d bb       	out	0x1d, r18	; 29
+ 64c:	0f b6       	in	r0, 0x3f	; 63
+ 64e:	f8 94       	cli
+ 650:	e2 9a       	sbi	0x1c, 2	; 28
+ 652:	e1 9a       	sbi	0x1c, 1	; 28
+ 654:	0f be       	out	0x3f, r0	; 63
+ 656:	01 96       	adiw	r24, 0x01	; 1
+ 658:	08 95       	ret
+
+0000065a <_exit>:
+ 65a:	f8 94       	cli
+
+0000065c <__stop_program>:
+ 65c:	ff cf       	rjmp	.-2      	; 0x65c <__stop_program>

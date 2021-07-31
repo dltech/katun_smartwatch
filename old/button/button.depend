@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1401351166 source:/home/dltech/gdrive/Projects/Катунь/Белкин/button/fuse.c
+	<avr/io.h>
+
+1405077641 source:/home/dltech/gdrive/Projects/Катунь/Белкин/button/main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<avr/sleep.h>
+	<avr/eeprom.h>
+	"rfm12.h"
+
+1401567329 /home/dltech/gdrive/Projects/Катунь/Белкин/button/rfm12.h
+
+1401567637 source:/home/dltech/gdrive/Projects/Катунь/Белкин/button/rfm12.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/crc16.h>
+	"rfm12.h"
+
+1401351166 source:/home/dltech/Загрузки/Белкин/button/fuse.c
+	<avr/io.h>
+
+1401567637 source:/home/dltech/Загрузки/Белкин/button/rfm12.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/crc16.h>
+	"rfm12.h"
+
+1401567329 /home/dltech/Загрузки/Белкин/button/rfm12.h
+

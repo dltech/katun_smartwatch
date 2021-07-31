@@ -1,0 +1,194 @@
+# depslib dependency file v1.0
+1401780451 source:/home/dltech/Загрузки/Белкин/pager/event.c
+	<avr/eeprom.h>
+	"globals.h"
+	"event.h"
+	"hardware/lcd.h"
+
+1401300558 /home/dltech/Загрузки/Белкин/pager/globals.h
+	<avr/io.h>
+	<util/delay.h>
+	<avr/pgmspace.h>
+	<avr/interrupt.h>
+	<inttypes.h>
+	<stdio.h>
+
+1401300622 /home/dltech/Загрузки/Белкин/pager/event.h
+
+1401300566 /home/dltech/Загрузки/Белкин/pager/hardware/lcd.h
+	<inttypes.h>
+	<avr/pgmspace.h>
+
+1401780357 source:/home/dltech/Загрузки/Белкин/pager/fuse.c
+	<avr/io.h>
+
+1401780585 source:/home/dltech/Загрузки/Белкин/pager/hardware/keyboard.c
+	"../globals.h"
+	"keyboard.h"
+	"../messages.h"
+
+1401300536 /home/dltech/Загрузки/Белкин/pager/hardware/keyboard.h
+
+1401597354 /home/dltech/Загрузки/Белкин/pager/messages.h
+	<avr/io.h>
+
+1401300560 source:/home/dltech/Загрузки/Белкин/pager/hardware/lcd.c
+	<inttypes.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"lcd.h"
+
+1401599314 source:/home/dltech/Загрузки/Белкин/pager/hardware/program_clock.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"program_clock.h"
+
+1401600055 /home/dltech/Загрузки/Белкин/pager/hardware/program_clock.h
+
+1401781141 source:/home/dltech/Загрузки/Белкин/pager/hardware/rfm22.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/crc16.h>
+	"rfm22.h"
+
+1401781210 /home/dltech/Загрузки/Белкин/pager/hardware/rfm22.h
+
+1401780706 source:/home/dltech/Загрузки/Белкин/pager/main.c
+	"globals.h"
+	<avr/eeprom.h>
+	"messages.h"
+	"menu.h"
+	"menuitems.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/rfm22.h"
+	"hardware/lcd.h"
+	"hardware/program_clock.h"
+
+1401710969 /home/dltech/Загрузки/Белкин/pager/menu.h
+	"messages.h"
+
+1401300618 /home/dltech/Загрузки/Белкин/pager/menuitems.h
+
+1401780525 source:/home/dltech/Загрузки/Белкин/pager/menu.c
+	"globals.h"
+	"messages.h"
+	"menu.h"
+	"menuitems.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/lcd.h"
+
+1401780556 source:/home/dltech/Загрузки/Белкин/pager/menuitems.c
+	"globals.h"
+	<avr/eeprom.h>
+	"messages.h"
+	"menuitems.h"
+	"menu.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/lcd.h"
+	"hardware/rfm22.h"
+
+1401300562 source:/home/dltech/Загрузки/Белкин/pager/messages.c
+	"globals.h"
+	<util/atomic.h>
+	"messages.h"
+
+1401780451 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/event.c
+	<avr/eeprom.h>
+	"globals.h"
+	"event.h"
+	"hardware/lcd.h"
+
+1401300558 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/globals.h
+	<avr/io.h>
+	<util/delay.h>
+	<avr/pgmspace.h>
+	<avr/interrupt.h>
+	<inttypes.h>
+	<stdio.h>
+
+1401300622 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/event.h
+
+1401300566 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/lcd.h
+	<inttypes.h>
+	<avr/pgmspace.h>
+
+1401780357 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/fuse.c
+	<avr/io.h>
+
+1401780585 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/keyboard.c
+	"../globals.h"
+	"keyboard.h"
+	"../messages.h"
+
+1401300536 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/keyboard.h
+
+1401597354 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/messages.h
+	<avr/io.h>
+
+1401300560 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/lcd.c
+	<inttypes.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"lcd.h"
+
+1401781141 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/rfm22.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/crc16.h>
+	"rfm22.h"
+
+1401781262 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/rfm22.h
+
+1402311263 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/menu.c
+	"globals.h"
+	"messages.h"
+	"menu.h"
+	"menuitems.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/lcd.h"
+
+1401951377 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/menu.h
+	"messages.h"
+
+1401952437 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/menuitems.h
+
+1402309770 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/menuitems.c
+	"globals.h"
+	<avr/eeprom.h>
+	"messages.h"
+	"menuitems.h"
+	"menu.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/lcd.h"
+	"hardware/rfm22.h"
+
+1401300562 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/messages.c
+	"globals.h"
+	<util/atomic.h>
+	"messages.h"
+
+1401950007 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/program_clock.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"program_clock.h"
+
+1401600055 /home/dltech/gdrive/Projects/Катунь/Белкин/pager/hardware/program_clock.h
+
+1402311696 source:/home/dltech/gdrive/Projects/Катунь/Белкин/pager/main.c
+	"globals.h"
+	<avr/eeprom.h>
+	<util/atomic.h>
+	"messages.h"
+	"menu.h"
+	"menuitems.h"
+	"event.h"
+	"hardware/keyboard.h"
+	"hardware/rfm22.h"
+	"hardware/lcd.h"
+	"hardware/program_clock.h"
+
