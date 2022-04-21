@@ -24,71 +24,52 @@
 
 /* PA selection and Output Power control */
 #define REGPACONFIG         0x09
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Selects PA output pin
+#define PaSelect        0x80
+// power amplifier max output power
+#define OutputPowerMSK  0x0f
 
 /* Over Current Protection control */
 #define REGPARAMP           0x0a
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// 1 - Low consumption PLL is used in receive and transmit mode
+#define LowPnTxPllOff   0x10
+// Rise/Fall time of ramp up/down in FSK
+#define PaRamp3p4m      0x00
+#define PaRamp2m        0x01
+#define PaRamp1m        0x02
+#define PaRamp500u      0x03
+#define PaRamp250u      0x04
+#define PaRamp125u      0x05
+#define PaRamp100u      0x06
+#define PaRamp62u       0x07
+#define PaRamp50u       0x08
+#define PaRamp40u       0x09
+#define PaRamp31u       0x0a
+#define PaRamp25u       0x0b
+#define PaRamp20u       0x0c
+#define PaRamp15u       0x0d
+#define PaRamp12u       0x0e
+#define PaRamp10u       0x0f
 
 /* Control of PA ramp time, low phase noise PLL */
 #define REGOCP              0x0b
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Enables overload current protection
+#define OcpOn       0x80
+// Trimming of OCP current
+#define OcpTrimMSK  0x1f
 
 /* LNA settings */
 #define REGLNA              0x0c
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// LNA gain setting
+#define LnaGainNa   0x00
+#define LnaGainG1   0x20
+#define LnaGainG2   0x40
+#define LnaGainG3   0x60
+#define LnaGainG4   0x80
+#define LnaGainG4   0xa0
+#define LnaGainG6   0xc0
+// Boost on, 150% LNA current.
+#define LnaBoost    0x03
 
 /* FIFO SPI pointer */
 #define REGFIFOADDRPTR      0x0d
@@ -104,37 +85,41 @@
 
 /* Optional IRQ flag mask */
 #define REGIRQFLAGSMASK     0x11
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Timeout interrupt mask
+#define RxTimeoutMask           0x80
+// Packet reception complete interrupt mask
+#define RxDoneMask              0x40
+// Payload CRC error interrupt mask
+#define PayloadCrcErrorMask     0x20
+// Valid header received in Rx mask
+#define ValidHeaderMask         0x10
+// FIFO Payload transmission complete interrupt mask
+#define TxDoneMask              0x08
+// CAD complete interrupt mask
+#define CadDoneMask             0x04
+// FHSS change channel interrupt mask
+#define FhssChangeChannelMask   0x02
+// FHSS change channel interrupt mask
+#define CadDetectedMask         0x01
 
 /* IRQ flags */
 #define REGIRQFLAGS         0x12
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Timeout interrupt
+#define RxTimeout           0x80
+// Packet reception complete interrupt
+#define RxDone              0x40
+// Payload CRC error interrupt
+#define PayloadCrcError     0x20
+// Valid header received in Rx
+#define ValidHeader         0x10
+// FIFO Payload transmission complete interrupt
+#define TxDone              0x08
+// CAD complete interrupt
+#define CadDone             0x04
+// FHSS change channel interrupt
+#define FhssChangeChannel   0x02
+// FHSS change channel interrupt
+#define CadDetected         0x01
 
 /* Number of received bytes */
 #define REGRXNBYTES         0x13
@@ -149,37 +134,17 @@
 
 /* Live LoRaTM modem status */
 #define REGMODEMSTAT            0x18
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Coding rate of last header received
+#define RxCodingRateShift   5
+// modem status
+#define ModemStatusClear              0x10
+#define ModemStatusHeaderInfoValid    0x08
+#define ModemStatusRxOnGoing          0x04
+#define ModemStatusSignalSynchronized 0x02
+#define ModemStatusSignalDetected     0x01
 
 /* Espimation of last packet SNR */
 #define REGPKTSNRVALUE          0x19
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
 
 /* RSSI of last packet */
 #define REGPKTRSSIVALUE         0x1a
@@ -189,37 +154,32 @@
 
 /* FHSS start channel */
 #define REGHOPCHANNEL           0x1c
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// PLL failed to lock while attempting a TX/RX/CAD operation
+#define PllTimeout      0x80
+// CRC Information extracted from the received packet header
+#define CrcOnPayload    0x40
+// Current value of frequency hopping channel in use
+#define FhssPresentChannelMsk 0x3f
 
-/* Modem PHY config */
+/* Modem PHY config 1 */
 #define REGMODEMCONFIG1         0x1d
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
-//
-#define
+// Signal bandwidth
+#define Bw125                   0x00
+#define Bw250                   0x40
+#define Bw500                   0x80
+// Error coding rate
+#define CodingRate4s5           0x08
+#define CodingRate4s6           0x10
+#define CodingRate4s7           0x18
+#define CodingRate4s8           0x20
+// 1 - Implicit Header mode
+#define ImplicitHeaderModeOn    0x04
+// Enable CRC generation and check on payload:
+#define RxPayloadCrcOn          0x02
+// 1 - Enabled; mandated for SF11 and SF12 with BW = 125 kHz
+#define LowDataRateOptimize     0x01
+
+/* Modem PHY config 2 */
 #define REGMODEMCONFIG2         0x1e
 // SF rate (expressed as a base-2 logarithm)
 #define SpreadingFactor64   0x60
